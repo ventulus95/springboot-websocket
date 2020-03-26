@@ -10,6 +10,6 @@ public class ChattingController {
     @MessageMapping("/chat")
     @SendTo("/topic/chat")
     public Chat chat(Chat chat) throws Exception{
-        return new Chat(chat.getName(), chat.getMessage());
+        return new Chat(chat.getName(), chat.getMessage(), chat.getTime());
     }
 }

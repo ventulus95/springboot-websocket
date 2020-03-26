@@ -33,11 +33,14 @@ function disconnect() {
 }
 
 function sendChat() {
-    stompClient.send("/app/chat", {}, JSON.stringify({'name': $("#name").val(), 'message': $("#chatMessage").val()}));
+    stompClient.send("/app/chat", {}, JSON.stringify({'name': $("#name").val(),
+            'message': $("#chatMessage").val(),
+            'time': null
+    }));
 }
 
 function showChat(chat) {
-    $("#greetings").append("<tr><td>" + chat.name + " : " + chat.message + "</td></tr>");
+    $("#greetings").append("<tr><td>" + chat.name + " : " + chat.message + "<span id='time'>시간: "+chat.time+"</span></td></tr>");
 }
 
 $(function () {
